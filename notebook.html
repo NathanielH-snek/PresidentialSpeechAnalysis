@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="notebook_files/libs/clipboard/clipboard.min.js"></script>
+<script src="notebook_files/libs/quarto-html/tabby.min.js"></script>
+<script src="notebook_files/libs/quarto-html/popper.min.js"></script>
+<script src="notebook_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="notebook_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="notebook_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="notebook_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="notebook_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <title>Plot Ideas</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="notebook_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="notebook_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="notebook_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="notebook_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="notebook_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="notebook_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="notebook_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+</head>
+<body class="quarto-dark">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Plot Ideas</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section class="slide level2">
+
+<div id="MJUe" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">doc_name</th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">transcript</th>
+<th data-quarto-table-cell-role="th">president</th>
+<th data-quarto-table-cell-role="th">title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>january-22-1807-special-message-congress-burr-...</td>
+<td>1807-01-22</td>
+<td>TO THE SENATE AND HOUSE OF REPRESENTATIVES OF ...</td>
+<td>Thomas Jefferson</td>
+<td>January 22, 1807: Special Message to Congress ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>may-25-1813-message-special-congressional-sess...</td>
+<td>1813-05-25</td>
+<td>Fellow-Citizens of the Senate and of the House...</td>
+<td>James Madison</td>
+<td>May 25, 1813: Message on the Special Congressi...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>april-2-1917-address-congress-requesting-decla...</td>
+<td>1917-04-02</td>
+<td>I have called the Congress into extraordinary ...</td>
+<td>Woodrow Wilson</td>
+<td>April 2, 1917: Address to Congress Requesting ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>april-10-1975-address-us-foreign-policy</td>
+<td>1975-04-10</td>
+<td>Mr. Speaker, Mr. President, distinguished gues...</td>
+<td>Gerald Ford</td>
+<td>April 10, 1975: Address on U.S. Foreign Policy</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>july-6-1848-message-regarding-treaty-guadalupe...</td>
+<td>1848-07-06</td>
+<td>To the House of Representatives of the United ...</td>
+<td>James K. Polk</td>
+<td>July 6, 1848: Message Regarding the Treaty of ...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="vblA" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">transcript</th>
+<th data-quarto-table-cell-role="th">president</th>
+<th data-quarto-table-cell-role="th">title</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1807-01-22</td>
+<td>TO THE SENATE AND HOUSE OF REPRESENTATIVES OF ...</td>
+<td>Thomas Jefferson</td>
+<td>January 22, 1807: Special Message to Congress ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1813-05-25</td>
+<td>Fellow-Citizens of the Senate and of the House...</td>
+<td>James Madison</td>
+<td>May 25, 1813: Message on the Special Congressi...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1917-04-02</td>
+<td>I have called the Congress into extraordinary ...</td>
+<td>Woodrow Wilson</td>
+<td>April 2, 1917: Address to Congress Requesting ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1975-04-10</td>
+<td>Mr. Speaker, Mr. President, distinguished gues...</td>
+<td>Gerald Ford</td>
+<td>April 10, 1975: Address on U.S. Foreign Policy</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1848-07-06</td>
+<td>To the House of Representatives of the United ...</td>
+<td>James K. Polk</td>
+<td>July 6, 1848: Message Regarding the Treaty of ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1056</td>
+<td>1917-04-06</td>
+<td>Whereas the Congress of the United States in t...</td>
+<td>Woodrow Wilson</td>
+<td>April 6, 1917: Proclamation 1364</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1057</td>
+<td>1965-07-13</td>
+<td>THE PRESIDENT. Good afternoon, ladies and gent...</td>
+<td>Lyndon B. Johnson</td>
+<td>July 13, 1965: Press Conference in the East Room</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1058</td>
+<td>1872-12-02</td>
+<td>To the Senate and House of Representatives: In...</td>
+<td>Ulysses S. Grant</td>
+<td>December 2, 1872: Fourth Annual Message</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1059</td>
+<td>1867-07-19</td>
+<td>To the House of Representatives of the United ...</td>
+<td>Andrew Johnson</td>
+<td>July 19, 1867: Message Regarding Reconstructio...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1060</td>
+<td>1844-04-09</td>
+<td>To the House of Representatives:\nIn complianc...</td>
+<td>John Tyler</td>
+<td>April 9, 1844: Message Regarding Disturbances ...</td>
+</tr>
+</tbody>
+</table>
+
+<p>1061 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div id="bkHC" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>['Thomas Jefferson' 'James Madison' 'Woodrow Wilson' 'Gerald Ford'
+ 'James K. Polk' 'George W. Bush' 'Lyndon B. Johnson'
+ 'Franklin D. Roosevelt' 'James Monroe' 'John F. Kennedy'
+ 'Chester A. Arthur' 'Donald Trump' 'Harry S. Truman' 'George Washington'
+ 'Ronald Reagan' 'John Tyler' 'Bill Clinton' 'Grover Cleveland'
+ 'Richard M. Nixon' 'Calvin Coolidge' 'Andrew Jackson' 'Jimmy Carter'
+ 'Abraham Lincoln' 'Franklin Pierce' 'Joe Biden' 'Barack Obama'
+ 'Rutherford B. Hayes' 'Benjamin Harrison' 'Herbert Hoover'
+ 'George H. W. Bush' 'Theodore Roosevelt' 'Ulysses S. Grant'
+ 'Warren G. Harding' 'Andrew Johnson' 'Martin Van Buren'
+ 'James A. Garfield' 'James Buchanan' 'William McKinley' 'William Taft'
+ 'Dwight D. Eisenhower' 'John Quincy Adams' 'John Adams' 'Zachary Taylor'
+ 'William Harrison' 'Millard Fillmore']</code></pre>
+</div>
+</div>
+<div id="lEQa" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">President Name</th>
+<th data-quarto-table-cell-role="th">Years In Office</th>
+<th data-quarto-table-cell-role="th">Number</th>
+<th data-quarto-table-cell-role="th">Party</th>
+<th data-quarto-table-cell-role="th">Average Approval Rating Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Harry S. Truman</td>
+<td>1945-1953</td>
+<td>33rd</td>
+<td>Democratic</td>
+<td>45.4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Dwight D. Eisenhower</td>
+<td>1953-1961</td>
+<td>34th</td>
+<td>Republican</td>
+<td>65.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>John F. Kennedy</td>
+<td>1961-1963</td>
+<td>35th</td>
+<td>Democratic</td>
+<td>70.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Lyndon B. Johnson</td>
+<td>1963-1969</td>
+<td>36th</td>
+<td>Democratic</td>
+<td>55.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Richard M. Nixon</td>
+<td>1969-1974</td>
+<td>37th</td>
+<td>Republican</td>
+<td>49.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Gerald Ford</td>
+<td>1974-1977</td>
+<td>38th</td>
+<td>Republican</td>
+<td>47.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Jimmy Carter</td>
+<td>1977-1981</td>
+<td>39th</td>
+<td>Democratic</td>
+<td>45.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Ronald Reagan</td>
+<td>1981-1989</td>
+<td>40th</td>
+<td>Republican</td>
+<td>52.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>George H. W. Bush</td>
+<td>1989-1993</td>
+<td>41st</td>
+<td>Republican</td>
+<td>60.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Bill Clinton</td>
+<td>1993-2001</td>
+<td>42nd</td>
+<td>Democratic</td>
+<td>55.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>George W. Bush</td>
+<td>2001-2009</td>
+<td>43rd</td>
+<td>Republican</td>
+<td>49.4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Barack Obama</td>
+<td>2009-2017</td>
+<td>44th</td>
+<td>Democratic</td>
+<td>47.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Donald Trump</td>
+<td>2017-2021</td>
+<td>45th</td>
+<td>Republican</td>
+<td>41.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Joe Biden</td>
+<td>2021-2025</td>
+<td>46th</td>
+<td>Democratic</td>
+<td>42.2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="PKri" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">president</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">transcript</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">doc_id</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1945-04-16</td>
+<td>Harry S. Truman</td>
+<td>April 16, 1945: First Speech to Congress</td>
+<td>Mr. Speaker, Mr. President, Members of the Con...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1945-05-08</td>
+<td>Harry S. Truman</td>
+<td>May 8, 1945: Announcing the Surrender of Germany</td>
+<td>This is a solemn but a glorious hour. I only w...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1945-08-06</td>
+<td>Harry S. Truman</td>
+<td>August 6, 1945: Statement by the President Ann...</td>
+<td>Sixteen hours ago an American airplane dropped...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1945-08-09</td>
+<td>Harry S. Truman</td>
+<td>August 9, 1945: Radio Report to the American P...</td>
+<td>My fellow Americans:\n\nI have just returned f...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1945-09-01</td>
+<td>Harry S. Truman</td>
+<td>September 1, 1945: Announcing the Surrender of...</td>
+<td>The thoughts and hopes of all America—indeed o...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">492</td>
+<td>2024-07-24T20:00:00-04:00</td>
+<td>Joe Biden</td>
+<td>July 24, 2024: Statement to the American People</td>
+<td>&lt;p class="p1"&gt;&lt;span class="s1"&gt;THE PRESIDENT: ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">493</td>
+<td>2024-09-24T10:12:00-04:00</td>
+<td>Joe Biden</td>
+<td>September 24, 2024: Address before the 79th Un...</td>
+<td>&lt;p class="p1"&gt;&lt;span class="s1"&gt;THE PRESIDENT: ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">494</td>
+<td>2025-01-15T20:00:00-05:00</td>
+<td>Joe Biden</td>
+<td>January 15, 2025: Farewell Address</td>
+<td>THE PRESIDENT: My fellow Americans, I am speak...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">495</td>
+<td>2025-01-20T12:10:00-05:00</td>
+<td>Donald Trump</td>
+<td>January 20, 2025: Inaugural Address</td>
+<td>THE PRESIDENT: Thank you. Thank you very much,...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">496</td>
+<td>2025-03-04T21:15:00-05:00</td>
+<td>Donald Trump</td>
+<td>March 4, 2025: Address to a Joint Session of C...</td>
+<td>THE PRESIDENT: Speaker Johnson, Vice President...</td>
+</tr>
+</tbody>
+</table>
+
+<p>497 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<div id="Xref" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-stdout">
+<pre><code>['Harry S. Truman' 'Richard M. Nixon' 'Dwight D. Eisenhower'
+ 'John F. Kennedy' 'Lyndon B. Johnson' 'Ronald Reagan' 'Gerald Ford'
+ 'Jimmy Carter' 'George H. W. Bush' 'Bill Clinton' 'George W. Bush'
+ 'Barack Obama' 'Donald Trump' 'Joe Biden']</code></pre>
+</div>
+</div>
+<div id="RGSE" class="cell" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Topic</th>
+<th data-quarto-table-cell-role="th">Count</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Representation</th>
+<th data-quarto-table-cell-role="th">Representative_Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-1</td>
+<td>375</td>
+<td>-1_congress_constitution_president_federal</td>
+<td>[congress, constitution, president, federal, g...</td>
+<td>[To the Senate and House of Representatives: T...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0</td>
+<td>55</td>
+<td>0_president_congress_economy_americas</td>
+<td>[president, congress, economy, americas, refor...</td>
+<td>[Mr. Speaker, Mr. Vice President, Members of C...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1</td>
+<td>53</td>
+<td>1_congress_treaty_constitution_citizens</td>
+<td>[congress, treaty, constitution, citizens, gov...</td>
+<td>[Fellow citizens of the Senate and House of Re...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2</td>
+<td>35</td>
+<td>2_constitution_congress_citizens_duties</td>
+<td>[constitution, congress, citizens, duties, gov...</td>
+<td>[To the Senate and House of Representatives of...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3</td>
+<td>34</td>
+<td>3_treasury_banking_bank_banks</td>
+<td>[treasury, banking, bank, banks, currency, fed...</td>
+<td>[To the Senate and House of Representatives: F...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>4</td>
+<td>32</td>
+<td>4_proclamation_unconstitutional_constitution_s...</td>
+<td>[proclamation, unconstitutional, constitution,...</td>
+<td>[By the President of the United States of Amer...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>5</td>
+<td>29</td>
+<td>5_vietnam_vietnamese_war_hanoi</td>
+<td>[vietnam, vietnamese, war, hanoi, peace, presi...</td>
+<td>[THE PRESIDENT. My fellow Americans: Not long ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>6</td>
+<td>24</td>
+<td>6_treaties_panama_treaty_congress</td>
+<td>[treaties, panama, treaty, congress, canal, se...</td>
+<td>[To the Congress of the United States: At the ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>7</td>
+<td>24</td>
+<td>7_constitution_provisions_treaty_legislature</td>
+<td>[constitution, provisions, treaty, legislature...</td>
+<td>[Circumstances have occurred to disturb the co...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>8</td>
+<td>23</td>
+<td>8_afghanistan_taliban_afghan_afghans</td>
+<td>[afghanistan, taliban, afghan, afghans, qaeda,...</td>
+<td>[THE PRESIDENT: Good afternoon. Earlier today,...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>9</td>
+<td>23</td>
+<td>9_treaty_congress_provisions_naval</td>
+<td>[treaty, congress, provisions, naval, agreemen...</td>
+<td>[Fellow Citizens of the Senate and of the Hous...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>10</td>
+<td>23</td>
+<td>10_legislature_legislation_provisions_constitu...</td>
+<td>[legislature, legislation, provisions, constit...</td>
+<td>[To the House of Representatives of the United...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>11</td>
+<td>21</td>
+<td>11_congress_mexico_constitution_treaty</td>
+<td>[congress, mexico, constitution, treaty, repre...</td>
+<td>[To the House of Representatives of the United...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>12</td>
+<td>19</td>
+<td>12_democrats_democratic_candidate_campaign</td>
+<td>[democrats, democratic, candidate, campaign, c...</td>
+<td>[Senator James, Gentlemen of the Notification ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>13</td>
+<td>17</td>
+<td>13_applause_washington_laughter_president</td>
+<td>[applause, washington, laughter, president, we...</td>
+<td>[Hello Rutgers! Applause. RU rahrah! Applause....</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>14</td>
+<td>17</td>
+<td>14_union_congress_president_reform</td>
+<td>[union, congress, president, reform, americas,...</td>
+<td>[Mr. Speaker, Mr. President, distinguished Mem...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>15</td>
+<td>16</td>
+<td>15_freedom_liberty_constitution_democracy</td>
+<td>[freedom, liberty, constitution, democracy, ri...</td>
+<td>[Honors To Henry ClayOn the fourth day of July...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>16</td>
+<td>15</td>
+<td>16_allies_war_germans_gaulle</td>
+<td>[allies, war, germans, gaulle, freedom, repara...</td>
+<td>[My Lord Chancellor, Mr. Speaker: The journey ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>17</td>
+<td>14</td>
+<td>17_cuba_cuban_havana_proclamation</td>
+<td>[cuba, cuban, havana, proclamation, congress, ...</td>
+<td>[To the Senate and House of Representatives: I...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>18</td>
+<td>13</td>
+<td>18_debate_candidates_clinton_president</td>
+<td>[debate, candidates, clinton, president, campa...</td>
+<td>[Good evening, I am Barbara Walters, moderator...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>19</td>
+<td>12</td>
+<td>19_nato_treaty_gorbachev_sanctions</td>
+<td>[nato, treaty, gorbachev, sanctions, soviets, ...</td>
+<td>[Good evening. As most of you know, I've just ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>20</td>
+<td>11</td>
+<td>20_yale_university_universities_harvard</td>
+<td>[yale, university, universities, harvard, facu...</td>
+<td>[President Griswold, members of the faculty, g...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>21</td>
+<td>10</td>
+<td>21_bipartisan_president_congress_applause</td>
+<td>[bipartisan, president, congress, applause, we...</td>
+<td>[SPEAKER OF THE HOUSE NANCY PELOSI: Members of...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>22</td>
+<td>10</td>
+<td>22_navy_military_harbor_reconnaissance</td>
+<td>[navy, military, harbor, reconnaissance, ships...</td>
+<td>[My friends: I wish that all the Americans peo...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>23</td>
+<td>10</td>
+<td>23_iraqi_iraq_baghdad_iraqis</td>
+<td>[iraqi, iraq, baghdad, iraqis, hussein, troops...</td>
+<td>[Good evening. Three days ago, in large number...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>24</td>
+<td>9</td>
+<td>24_watergate_prosecutor_investigation_committee</td>
+<td>[watergate, prosecutor, investigation, committ...</td>
+<td>[Good evening: I want to talk to you tonight f...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>25</td>
+<td>9</td>
+<td>25_constitution_congress_secession_rebellion</td>
+<td>[constitution, congress, secession, rebellion,...</td>
+<td>[To the Senate of the United States: I have gi...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>26</td>
+<td>9</td>
+<td>26_disarmament_treaty_nations_regime</td>
+<td>[disarmament, treaty, nations, regime, peace, ...</td>
+<td>[Mr. SecretaryGeneral, Mr. President, distingu...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>27</td>
+<td>9</td>
+<td>27_tariff_congress_legislation_senate</td>
+<td>[tariff, congress, legislation, senate, commis...</td>
+<td>[MY FELLOW CITIZENS: As long ago as August, , ...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>28</td>
+<td>8</td>
+<td>28_congress_legislation_provisions_government</td>
+<td>[congress, legislation, provisions, government...</td>
+<td>[To the Congress of the United States: The pre...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>29</td>
+<td>8</td>
+<td>29_memorial_cemetery_sacrifice_gettysburg</td>
+<td>[memorial, cemetery, sacrifice, gettysburg, ve...</td>
+<td>[Chancellor Kohl and honored guests, this pain...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>30</td>
+<td>8</td>
+<td>30_military_appointed_duty_officer</td>
+<td>[military, appointed, duty, officer, constitut...</td>
+<td>[To the Senate: In response to Senate resoluti...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>31</td>
+<td>8</td>
+<td>31_applause_president_proud_mccain</td>
+<td>[applause, president, proud, mccain, appreciat...</td>
+<td>[THE PRESIDENT: Thank you, everybody. Thank yo...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>32</td>
+<td>8</td>
+<td>32_submarines_naval_submarine_diplomatic</td>
+<td>[submarines, naval, submarine, diplomatic, tar...</td>
+<td>[I have called the Congress into extraordinary...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>33</td>
+<td>7</td>
+<td>33_covid_vaccinated_coronavirus_president</td>
+<td>[covid, vaccinated, coronavirus, president, vi...</td>
+<td>[THE PRESIDENT: Okay. Thank you very much. Ple...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>34</td>
+<td>7</td>
+<td>34_solemnity_prayers_oath_prayer</td>
+<td>[solemnity, prayers, oath, prayer, thanksgivin...</td>
+<td>[Whereas the Congress of the United States, by...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>35</td>
+<td>7</td>
+<td>35_cadets_soldier_general_cadet</td>
+<td>[cadets, soldier, general, cadet, rotc, milita...</td>
+<td>[Well, thank you all very much for that warm w...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>36</td>
+<td>7</td>
+<td>36_treaties_treaty_citizenship_immigration</td>
+<td>[treaties, treaty, citizenship, immigration, p...</td>
+<td>[To the House of Representatives: After a very...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>37</td>
+<td>6</td>
+<td>37_president_washington_war_freedom</td>
+<td>[president, washington, war, freedom, america,...</td>
+<td>[My fellow Americans: Washington's Birthday is...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>38</td>
+<td>6</td>
+<td>38_constitution_representatives_issued_duties</td>
+<td>[constitution, representatives, issued, duties...</td>
+<td>[To the Senate of the United States: I have re...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>39</td>
+<td>6</td>
+<td>39_gorbachev_soviet_moscow_president</td>
+<td>[gorbachev, soviet, moscow, president, meeting...</td>
+<td>[Mr. Speaker, Mr. President, Members of the Co...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>40</td>
+<td>6</td>
+<td>40_president_conservative_conservatives_applause</td>
+<td>[president, conservative, conservatives, appla...</td>
+<td>[Ladies and gentlemen, Mr. Chairman, reverend ...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>41</td>
+<td>6</td>
+<td>41_economic_congress_government_labor</td>
+<td>[economic, congress, government, labor, legisl...</td>
+<td>[To the Congress of the United States: The pre...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
+<td>42</td>
+<td>6</td>
+<td>42_negro_negroes_civil_freedom</td>
+<td>[negro, negroes, civil, freedom, citizens, opp...</td>
+<td>[Good evening, my fellow citizens: This aftern...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>43</td>
+<td>6</td>
+<td>43_nato_allies_kosovo_balkans</td>
+<td>[nato, allies, kosovo, balkans, milosevic, war...</td>
+<td>[THE PRESIDENT: Hello, Poland! One of our grea...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="Kclp" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">doc_id</th>
+<th data-quarto-table-cell-role="th">sentence_index</th>
+<th data-quarto-table-cell-role="th">sentence_text</th>
+<th data-quarto-table-cell-role="th">sentiment_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0</td>
+<td>Mr. Speaker, Mr. President, Members of the Con...</td>
+<td>0.7096</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0</td>
+<td>1</td>
+<td>Only yesterday, we laid to rest the mortal rem...</td>
+<td>0.5106</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>2</td>
+<td>At a time like this, words are inadequate.</td>
+<td>-0.0516</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0</td>
+<td>3</td>
+<td>The most eloquent tribute would be a reverent ...</td>
+<td>0.0000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>4</td>
+<td>Yet, in this decisive hour, when world events ...</td>
+<td>-0.2441</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="emfo" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">date</th>
+<th data-quarto-table-cell-role="th">president</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">transcript</th>
+<th data-quarto-table-cell-role="th">tokenized_text</th>
+<th data-quarto-table-cell-role="th">lem_tokenized_text</th>
+<th data-quarto-table-cell-role="th">transcript_clean</th>
+<th data-quarto-table-cell-role="th">flesch_reading_ease</th>
+<th data-quarto-table-cell-role="th">flesch_kincaid_grade</th>
+<th data-quarto-table-cell-role="th">smog_index</th>
+<th data-quarto-table-cell-role="th">coleman_liau_index</th>
+<th data-quarto-table-cell-role="th">automated_readability_index</th>
+<th data-quarto-table-cell-role="th">dale_chall_score</th>
+<th data-quarto-table-cell-role="th">difficult_words</th>
+<th data-quarto-table-cell-role="th">readability_consensus</th>
+<th data-quarto-table-cell-role="th">lexical_diversity</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">doc_id</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1945-04-16</td>
+<td>Harry S. Truman</td>
+<td>April 16, 1945: First Speech to Congress</td>
+<td>Mr. Speaker, Mr. President, Members of the Con...</td>
+<td>[Mr., Speaker, ,, Mr., President, ,, Members, ...</td>
+<td>[Mr., Speaker, ,, Mr., President, ,, Members, ...</td>
+<td>Mr. Speaker, Mr. President, Members of the Con...</td>
+<td>55.03</td>
+<td>9.6</td>
+<td>11.8</td>
+<td>9.57</td>
+<td>9.2</td>
+<td>7.41</td>
+<td>299.0</td>
+<td>10.0</td>
+<td>0.328358</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1945-05-08</td>
+<td>Harry S. Truman</td>
+<td>May 8, 1945: Announcing the Surrender of Germany</td>
+<td>This is a solemn but a glorious hour. I only w...</td>
+<td>[This, is, a, solemn, but, a, glorious, hour, ...</td>
+<td>[solemn, glorious, hour, ., wish, Franklin, D....</td>
+<td>This is a solemn but a glorious hour. I only w...</td>
+<td>59.13</td>
+<td>10.1</td>
+<td>11.8</td>
+<td>8.12</td>
+<td>10.0</td>
+<td>7.71</td>
+<td>114.0</td>
+<td>10.0</td>
+<td>0.403372</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1945-08-06</td>
+<td>Harry S. Truman</td>
+<td>August 6, 1945: Statement by the President Ann...</td>
+<td>Sixteen hours ago an American airplane dropped...</td>
+<td>[Sixteen, hours, ago, an, American, airplane, ...</td>
+<td>[Sixteen, hour, ago, American, airplane, dropp...</td>
+<td>Sixteen hours ago an American airplane dropped...</td>
+<td>49.96</td>
+<td>11.6</td>
+<td>13.5</td>
+<td>10.15</td>
+<td>11.8</td>
+<td>8.04</td>
+<td>207.0</td>
+<td>12.0</td>
+<td>0.382258</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1945-08-09</td>
+<td>Harry S. Truman</td>
+<td>August 9, 1945: Radio Report to the American P...</td>
+<td>My fellow Americans:\n\nI have just returned f...</td>
+<td>[My, fellow, Americans, :, I, have, just, retu...</td>
+<td>[fellow, Americans, :, returned, Berlin, ,, ci...</td>
+<td>My fellow Americans: I have just returned from...</td>
+<td>52.49</td>
+<td>10.6</td>
+<td>13.0</td>
+<td>9.98</td>
+<td>10.5</td>
+<td>7.08</td>
+<td>561.0</td>
+<td>11.0</td>
+<td>0.241114</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1945-09-01</td>
+<td>Harry S. Truman</td>
+<td>September 1, 1945: Announcing the Surrender of...</td>
+<td>The thoughts and hopes of all America—indeed o...</td>
+<td>[The, thoughts, and, hopes, of, all, America—i...</td>
+<td>[thought, hope, Americaindeed, civilized, worl...</td>
+<td>The thoughts and hopes of all Americaindeed of...</td>
+<td>56.89</td>
+<td>11.0</td>
+<td>12.5</td>
+<td>8.71</td>
+<td>11.2</td>
+<td>7.54</td>
+<td>166.0</td>
+<td>11.0</td>
+<td>0.340221</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">492</td>
+<td>2024-07-24T20:00:00-04:00</td>
+<td>Joe Biden</td>
+<td>July 24, 2024: Statement to the American People</td>
+<td>&lt;p class="p1"&gt;&lt;span class="s1"&gt;THE PRESIDENT: ...</td>
+<td>[&lt;, p, class=, '', p1, '', &gt;, &lt;, span, class=,...</td>
+<td>[p, classpspan, classsTHE, PRESIDENT, :, fello...</td>
+<td>p classpspan classsTHE PRESIDENT: My fellow Am...</td>
+<td>56.66</td>
+<td>9.0</td>
+<td>12.2</td>
+<td>13.51</td>
+<td>12.0</td>
+<td>7.08</td>
+<td>225.0</td>
+<td>9.0</td>
+<td>0.329079</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">493</td>
+<td>2024-09-24T10:12:00-04:00</td>
+<td>Joe Biden</td>
+<td>September 24, 2024: Address before the 79th Un...</td>
+<td>&lt;p class="p1"&gt;&lt;span class="s1"&gt;THE PRESIDENT: ...</td>
+<td>[&lt;, p, class=, '', p1, '', &gt;, &lt;, span, class=,...</td>
+<td>[p, classpspan, classsTHE, PRESIDENT, :, fello...</td>
+<td>p classpspan classsTHE PRESIDENT: My fellow le...</td>
+<td>56.05</td>
+<td>9.2</td>
+<td>11.4</td>
+<td>10.84</td>
+<td>10.1</td>
+<td>7.32</td>
+<td>509.0</td>
+<td>10.0</td>
+<td>0.293286</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">494</td>
+<td>2025-01-15T20:00:00-05:00</td>
+<td>Joe Biden</td>
+<td>January 15, 2025: Farewell Address</td>
+<td>THE PRESIDENT: My fellow Americans, I am speak...</td>
+<td>[THE, PRESIDENT, :, My, fellow, Americans, ,, ...</td>
+<td>[PRESIDENT, :, fellow, Americans, ,, speaking,...</td>
+<td>THE PRESIDENT: My fellow Americans, I am speak...</td>
+<td>54.12</td>
+<td>10.0</td>
+<td>11.7</td>
+<td>8.87</td>
+<td>9.2</td>
+<td>7.40</td>
+<td>361.0</td>
+<td>10.0</td>
+<td>0.306130</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">495</td>
+<td>2025-01-20T12:10:00-05:00</td>
+<td>Donald Trump</td>
+<td>January 20, 2025: Inaugural Address</td>
+<td>THE PRESIDENT: Thank you. Thank you very much,...</td>
+<td>[THE, PRESIDENT, :, Thank, you, ., Thank, you,...</td>
+<td>[PRESIDENT, :, Thank, ., Thank, much, ,, every...</td>
+<td>THE PRESIDENT: Thank you. Thank you very much,...</td>
+<td>53.10</td>
+<td>10.3</td>
+<td>12.6</td>
+<td>9.45</td>
+<td>10.2</td>
+<td>7.50</td>
+<td>465.0</td>
+<td>10.0</td>
+<td>0.287318</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">496</td>
+<td>2025-03-04T21:15:00-05:00</td>
+<td>Donald Trump</td>
+<td>March 4, 2025: Address to a Joint Session of C...</td>
+<td>THE PRESIDENT: Speaker Johnson, Vice President...</td>
+<td>[THE, PRESIDENT, :, Speaker, Johnson, ,, Vice,...</td>
+<td>[PRESIDENT, :, Speaker, Johnson, ,, Vice, Pres...</td>
+<td>THE PRESIDENT: Speaker Johnson, Vice President...</td>
+<td>66.33</td>
+<td>7.3</td>
+<td>10.4</td>
+<td>8.34</td>
+<td>7.3</td>
+<td>6.45</td>
+<td>1109.0</td>
+<td>8.0</td>
+<td>0.184815</td>
+</tr>
+</tbody>
+</table>
+
+<p>497 rows × 16 columns</p>
+</div>
+</div>
+</div>
+<div id="nWHF" class="cell" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">doc_id</th>
+<th data-quarto-table-cell-role="th">sentiment_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0.213680</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>0.163097</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>-0.028956</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>0.113427</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>0.152624</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">492</td>
+<td>492</td>
+<td>0.284615</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">493</td>
+<td>493</td>
+<td>0.078983</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">494</td>
+<td>494</td>
+<td>0.243311</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">495</td>
+<td>495</td>
+<td>0.235205</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">496</td>
+<td>496</td>
+<td>0.111802</td>
+</tr>
+</tbody>
+</table>
+
+<p>497 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div id="ROlb" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>Index(['president', 'doc_id', 'flesch_reading_ease', 'flesch_kincaid_grade',
+       'smog_index', 'coleman_liau_index', 'automated_readability_index',
+       'dale_chall_score', 'difficult_words', 'readability_consensus',
+       'lexical_diversity', 'sentiment_score', 'Party',
+       'Average Approval Rating Percentage'],
+      dtype='object')</code></pre>
+</div>
+</div>
+
+<img data-src="notebook_files/figure-revealjs/cell-19-output-1.png" class="r-stretch"><ul>
+<li class="fragment">Topics changes over time (lines)</li>
+<li class="fragment">Sentiment by President</li>
+<li class="fragment">Topic by president</li>
+<li class="fragment">Speech Complexity, readability, lexicon, etc. by President / Time</li>
+</ul>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="notebook_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="notebook_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="notebook_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="notebook_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
