@@ -1,2 +1,6 @@
 __marimo__/session
+__marimo__/cache
 __pycache__
+notebook.ipynb
+notebook.html
+notebook_files

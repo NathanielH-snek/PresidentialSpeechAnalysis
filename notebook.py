@@ -1,19 +1,34 @@
 import marimo
 
-__generated_with = "0.13.6"
+__generated_with = "0.13.8"
 app = marimo.App(
     width="medium",
     app_title="Presidential Speech Analysis",
     layout_file="layouts/notebook.slides.json",
+    auto_download=["html"],
 )
 
 
 @app.cell
-def _():
-    # Bloviator or Intellectual?
-    ## An analysis of Presidential Speeches
+def _(mo):
+    mo.md(r"""# Utilizing NLP and ML to Analyze Presidential Speeches""")
+    return
 
-    ### Nathaniel Holden
+
+@app.cell
+def _(mo):
+    mo.md(
+        r"""
+    Natural language processing and machine learning both are tools that are used widely in data science. This article aims to apply these techniques both as a way of showing off an interesting application of these techniques through exploratory analysis as well as to share some interesting findings and educate on how to interpret results from using these techiniques. This project is done in Marimo an excellent tool for data science that solves some issues with Jupyter Notebooks. Stay tuned for another article about Marimo Notebooks soon. Here are the tools that will be used in this article:
+
+    * Sklearn: PCA
+    * Pandas: Handling data organization and basic manipulation
+    * NLTK: Tokenization, Sentiment
+    * BERTopic: Topic Modeling
+    * Plotly, Matplotlib: Plotting
+    * Textstat: Readibility Metrics
+    """
+    )
     return
 
 
@@ -44,101 +59,41 @@ def _():
 
 
 @app.cell
+def _(mo):
+    mo.md(
+        r"""
+    ## Initial Data Processing
+    All the text data in the speeches file is fetched from the Miller center. It could be fetched in code using the documentation [here.](https://data.millercenter.org/api.html) The presidents file also contains some additional information about presidents that have approval ratings. This data will be used later. As this project was iterated over a few moths a fixed data file was downloaded and saved and will be loaded for this analysis. In order to do good text analysis, you need to first preprocess your text data. Since this data contains transcripts sometimes from television there are many unneeded symbols in the text. Regex is a tool that allows us to remove characters from strings using pattern matching. After removing this excess data there are further preprocessing steps we can do. One step is to remove stop words. These are words that are frequent and don't really have much meaning depending on what your end goal is. Another thing you can do is something call lemmatization. This is a process which essentially shortens words to their roots and allows words that are similar like do and doing to show up as identical words. This can make models simpler since you don't have as many different components. Finally when this is all done you can then tokenize text. This is when text is broken up into much smaller parts. These parts can be thought of as words although that's not necessarily what the tokens actually end up being. It's important to note that different tokenizers can process text differently.
+    """
+    )
+    return
+
+
+@app.cell
 def _(json, pd):
+    # Load speech data
     def load_json(file):
         with open(file) as f:
             data = json.load(f)
             return data
 
     speeches = pd.DataFrame(load_json("speeches.json"))
-    #speeches.head()
     return (speeches,)
 
 
 @app.cell
-def _():
-    #speeches.drop(columns=['doc_name'], inplace=True)
-    #speeches.describe()
-    return
-
-
-@app.cell
 def _(pd):
+    # Load president approval data
     presidents = pd.read_csv("presidents.csv")
+    presidents
     return (presidents,)
 
 
 @app.cell
-def _(mo):
-    mo.md(
-        r"""
-    # Data
-    There are two facets to the data:
-
-    - Speeches
-    - Presidential Info
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    # Speeches
-    - All presidential speeches from Miller Center
-    - Spans 1975 - 2025
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    # Presidential Data
-    Includes
-
-    - Party
-    - Average Popularity
-    - Dates in Office
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    # Data Pipeline
-    - Clean Text
-    - Topic Modeling with BERTTopic
-    - Readability Metrics
-    - PCA Visualization
-    - Trend Visualization
-    """
-    )
-    return
-
-
-@app.cell
-def _(mo):
-    mo.md(
-        r"""
-    # Goals
-    - Exploratory more than research focused
-    - Are there any trends or interesting findings?
-    """
-    )
-    return
-
-
-@app.cell
 def _(presidents, speeches):
+    #Clean president names
     pres_names = presidents['President Name'].str.replace(' ', '', regex=True)
+    #Only use names from 
     speeches_clean = speeches[speeches['president'].str.replace(' ', '', regex=True).isin(pres_names)]
     speeches_clean = speeches_clean.sort_values('date').reset_index(drop=True)
     speeches_clean = speeches_clean[['date', 'president','title','transcript']]
@@ -146,7 +101,7 @@ def _(presidents, speeches):
     cols = ['doc_id'] + [col for col in speeches_clean.columns if col != 'doc_id']
     speeches_clean = speeches_clean[cols]
     speeches_clean.set_index('doc_id', inplace=True)
-    #speeches_clean
+    speeches_clean
     return (speeches_clean,)
 
 
@@ -198,12 +153,18 @@ def _(WordNetLemmatizer, speeches, speeches_clean, stopwords, word_tokenize):
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Topic Modeling""")
+    mo.md(
+        r"""
+    ## Topic Modeling
+    Now that our data is all preprocessed we can use a transformer model to get different topics from our data. Topic modeling essentially involves taking all the words present in a sample (note that in this case we are using **all** speeches not just those relating to our group of interest because generally you need more data for good topic modeling or neural networks in general) and using a pretrained transformer (a type of machine learning model) you can group words into general topics. There are other ways to do this but using transformers gives much more human understandable topic aggregates than an algorithm like lda. As you can see below there are some clear trends, like topic 2 for examples clearly relates to money and banking.
+    """
+    )
     return
 
 
 @app.cell
 def _(BERTopic, CountVectorizer, KeyBERTInspired, speeches):
+    # Create a vectorizer that will remove english stop words
     vectorizer_model = CountVectorizer(stop_words="english")
     representation_model = KeyBERTInspired(random_state=66)
     topic_model = BERTopic(vectorizer_model=vectorizer_model, representation_model=representation_model, min_topic_size=5)
@@ -217,17 +178,23 @@ def _(BERTopic, CountVectorizer, KeyBERTInspired, speeches):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""Now that we have our topics from our model and our data, we can extract those topics and their probablities and visualize how often those topics are a predominant topic in each president's speech. Plotly is excellent for this as it allows us to visualize almost all of these topics per president without overloading with data on first glance. Go ahead and explore the plot with your mouse! You can see what words make up different topics. Notice any trends or anythign interesting? Almost every president here uses some speech related to topic -1 which seems to revolve around government and legislation as general terminology. Isn't that interesting? Don't worry about the code too much for this one, plotting is always a bit messy.""")
+    return
+
+
+@app.cell
 def _(px, speeches, topic_model, topics):
     speeches['topic'] = topics
-    # Step 1: Count how many times each topic appears per president
-    topic_counts = speeches.groupby(['president', 'topic']).size().reset_index(name='count')
-    # Step 2: Pivot to get topics as columns for stacking
-    topic_pivot = topic_counts.pivot(index='president', columns='topic', values='count').fillna(0).reset_index()
-    ######
 
-    # Step 3: Melt back into long format for Plotly
+    topic_counts = speeches.groupby(['president', 'topic']).size().reset_index(name='count')
+
+    topic_pivot = topic_counts.pivot(index='president', columns='topic', values='count').fillna(0).reset_index()
+
+
+
     topic_long = topic_pivot.melt(id_vars='president', var_name='topic', value_name='count')
-    # Step 4: Get topic labels (keywords) from BERTopic
+
     topic_labels = {
         topic_id: ", ".join([word for word, _ in topic_model.get_topic(topic_id)])
         for topic_id in topic_model.get_topics().keys()
@@ -249,9 +216,9 @@ def _(px, speeches, topic_model, topics):
         'Donald Trump',
         'Joe Biden'
     ]
-    # Step 5: Subset by the needed presidents
+
     topic_long_subset = topic_long[topic_long['president'].isin(pres_needed)]
-    # Step 6: Define the mapping of president to term
+
     president_terms = {
         'Harry S. Truman': (1945, 1953),
         'Dwight D. Eisenhower': (1953, 1961),
@@ -284,13 +251,13 @@ def _(px, speeches, topic_model, topics):
         'Donald Trump': '(R)',
         'Joe Biden': '(D)'
     }
-    # Step 7: Add the 'term' column
+
     def get_term(president):
         return f"{president_terms[president][0]}-{president_terms[president][1]}"
 
     topic_long_subset['term'] = topic_long_subset['president'].apply(get_term)
 
-    # Step 8: Define the order of terms
+
     term_order = [
         '(D) Harry S. Truman (1945-1953)',
         '(R) Dwight D. Eisenhower (1953-1961)',
@@ -308,7 +275,7 @@ def _(px, speeches, topic_model, topics):
         '(D) Joe Biden (2021-2025)'
     ]
     topic_long_subset['term_president_party'] = topic_long_subset['president'].map(president_parties) + ' ' + topic_long_subset['president'] + ' (' + topic_long_subset['term'] + ')'
-    # Step 9: Plot
+
     fig_3 = px.bar(
         topic_long_subset,
         x='term_president_party',
@@ -331,11 +298,13 @@ def _(px, speeches, topic_model, topics):
 
 
 @app.cell
-def _(px, topic_labels, topic_long):
-    # Assuming you have your 'speeches' DataFrame and 'topic_model' already defined
-    # and have run the initial steps to create 'topic_long' and 'topic_labels'
+def _(mo):
+    mo.md(r"""We also can look at topics and how republicans and democrats vary in their usage in their speeches. Since we're using plotly again feel free to explore with your mouse again! An example of something interesting is that republicans in the sample spoke of agriculture and labor far more than democrats. What else do you notice?""")
+    return
 
-    # Add a 'party' column to topic_long
+
+@app.cell
+def _(px, topic_labels, topic_long):
     president_parties_new = {
         'Harry S. Truman': 'Democrat',
         'Dwight D. Eisenhower': 'Republican',
@@ -355,7 +324,7 @@ def _(px, topic_labels, topic_long):
     topic_long['party'] = topic_long['president'].map(president_parties_new)
 
     def truncate_label(label, max_words=5):
-        words = label.split(', ')  # Split by the keyword separator
+        words = label.split(', ')
         return ', '.join(words[:max_words]) if len(words) > max_words else label
 
     party_topic_counts = topic_long.groupby(['topic', 'party'])['count'].sum().reset_index(name='total_count')
@@ -381,8 +350,13 @@ def _(px, topic_labels, topic_long):
 
 
 @app.cell
-def _():
-    #topic_model.get_topic_info()
+def _(mo):
+    mo.md(
+        r"""
+    ## Sentiment and Readability Metrics
+    Now that we've talked about the topics that presidents are speaking about how about what distinguishes presidents from each other? One aspect of text is something called sentiment. This is exactly what you expect, its how postive or negative the text is. There are various ways to do this but the method we've used here is Vader. It is a dictionary based method. In simplistic terms words are assigned to a specific value that is either postive or negative and then that dictionary is mapped to your text. This can be accessed through nltk which has a vader module. This is one metric but how about some others? Well fortunately this is where textstat comes in. It is a package that allows us to calculate various agreed upon readability metrics. If you want to learn more about individual metrics check out the textstat package or look up the indiviudal metrics on wikipedia.
+    """
+    )
     return
 
 
@@ -393,6 +367,9 @@ def _(pd, sent_tokenize, speeches_clean):
     sia = SentimentIntensityAnalyzer()
     all_sentences = []
 
+    # Get the sentiment for each sentence in a document
+    # Note that you could do this for the whole document but there's some interesting
+    # stuff you could do like speech cadences if you have individual sentences!
     for doc_id, row in speeches_clean.iterrows():
         sentences = sent_tokenize(row['transcript_clean'])
         for idx, sentence in enumerate(sentences):
@@ -406,7 +383,6 @@ def _(pd, sent_tokenize, speeches_clean):
 
 
     sentence_sentiment = pd.DataFrame(all_sentences)
-    #sentence_sentiment.head()
     return (sentence_sentiment,)
 
 
@@ -414,6 +390,7 @@ def _(pd, sent_tokenize, speeches_clean):
 def _(pd, speeches_clean, word_tokenize):
     import textstat
 
+    # Our own derived lexical diversity metric
     def lexical_diversity(text):
         tokens = word_tokenize(text.lower())
         unique_tokens = set(tokens)
@@ -440,8 +417,6 @@ def _(pd, speeches_clean, word_tokenize):
 
     df_metrics = speeches_clean.apply(add_speech_metrics, axis=1)
     df_overall = pd.concat([speeches_clean, df_metrics], axis=1)
-
-    #df_overall
     return (df_overall,)
 
 
@@ -456,7 +431,6 @@ def _(sentence_sentiment):
 def _(presidents):
     pres_info = presidents
     pres_info.rename(columns={'President Name': 'president'}, inplace=True)
-    #pres_info['President Name'].str.replace(' ', '', regex=True)
     return (pres_info,)
 
 
@@ -484,7 +458,12 @@ def _(df_overall, df_polarity_avg, pres_info):
 
 @app.cell
 def _(mo):
-    mo.md(r"""# PCA""")
+    mo.md(
+        r"""
+    ## PCA
+    Ok great so now we've got all these metrics, but how the heck do we visualize them or make any comparisons? Fortunately this is where Principal Component Analysis (PCA) comes in. Scikit-learn a machine learning package allows us to do this. So what is PCA? Well it's a dimensionality reduction technique. Gee that sounds confusing what does it mean? Well think of each metric we've calculated as a dimension in space. You can imagine a central sphere and that each metric is a random line coming of that sphere. Now each actual observation or number we have for each of those arrows is how far we go in that direction to create a new point. It's just like how on a regular 2d plot you have a number for X and a number for Y which are your two dimensions. So [1,1] would be 1 in the direction or dimenions of x which is left and right and 1 in the y dimension which is up and down. Now just pretend that each one of those directions actually represents one of our metrics we've calculated. If that makes sense then you're on the way to understanding high dimensions! I'm sure you're now asking though, how do you graph that? Well fortunately there  are ways to reduce a bunch of dimension into a 2d one. To really understand PCA you need to get into a little bit of linear algebra but essentially it breaks down the data into little bits that represent as much of the data as it can. We can then use the first two bits to make a plot that will actually contain information about all of the data we calculated but in a way that we can visualize. That is what the plot below is. This plot is a called a biplot! All you need to really know to interpret it is that if you look at the red lines, those represent exacctly what they are labeled as. Now imagine for example that difficult_words is a line that extends all the way up and down from where it is now. Any of the presidents that are closer to the top of the line in this plot would be higher in the amount of difficult words they use and vice versa. Now apply that to all of the other lines and you can see what the plot is telling you. If this is confusing try thinking about each line or dimension one at a time. Let's take flesch reading ease as an example. Fortunately it aligns almost exactly with the x axis so its a bit easier to understand. Those presidents to the right such as Joe Biden, Donald Trump, have extremely easy to read speeches. Those on the left like Dwight D. Eisenhower, and John F. Kennedy are much harder to read. If you want to think about this a level higher you might notice that sentiment score and reading ease are *nearly* antiparallel which means that as one increases the other decreases in an almost 1:1 ratio. So someone who makes speeches that are highly readable also tends to have less postive speeches. Interesting huh? Unfortunately our visualization is in matplotlib this time so no intereatability.
+    """
+    )
     return
 
 
@@ -532,7 +511,7 @@ def _(pd, pres_speech_means):
     # Add text labels to each point (president)
     for _, row_num in df_pca.iterrows():
         ax.text(row_num['PC1'] + 0.1, row_num['PC2'] + 0.1, row_num['president'],
-                fontsize=9, alpha=0.7, color='black')
+                fontsize=9, alpha=0.7, color='white')
 
 
     ax.set_xlabel('PC1')
@@ -550,7 +529,7 @@ def _(pd, pres_speech_means):
 
 @app.cell
 def _(mo):
-    mo.md(r"""# Trend Visualization""")
+    mo.md(r"""Phew that was a lot. Let's finish up with one more plot. This is a plot of all the speeches of our presidents we are interested in in regards to the sentiment over time. This is once again done with plotly so feel free to explore. This one doesn't necessarily have clear conclusions to draw from but maybe you'll notice something interesting. Perhaps you could try to map some of these speech periods to historical periods in your mind quickly. See? Text analysis and machine learning isn't that hard! Now you hopefully have some tools to be able to do some of this on your own.""")
     return
 
 
