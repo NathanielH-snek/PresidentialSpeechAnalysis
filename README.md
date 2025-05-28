@@ -6,7 +6,9 @@ Analyzes and visualizes the sentiment and readability of U.S. presidential speec
 
 ## 🔍 Overview
 
-This project processes presidential speeches to extract sentence-level sentiment scores, various readability metrics, and lexical diversity. It then aggregates these metrics by president and applies Principal Component Analysis (PCA) to visualize speech characteristics. Finally, it provides interactive plots showing sentiment trends over time.
+This project processes presidential speeches to extract sentence-level sentiment scores, various readability metrics, and lexical diversity. It then aggregates these metrics by president and applies Principal Component Analysis (PCA) to visualize speech characteristics. Finally, it provides interactive plots showing sentiment trends over time. 
+
+> This projet is formatted as a blog post style project so that is why the tone is the way that it is in the text
 
 - **Problem solved:** Enables comparative analysis of presidential speech complexity and sentiment to reveal communication styles and historical patterns.
 - **Audience:** Data scientists, political analysts, historians, and NLP enthusiasts.
@@ -67,6 +69,7 @@ This project processes presidential speeches to extract sentence-level sentiment
 - Effective dimensionality reduction with PCA for high-dimensional text features  
 - Visualization techniques combining matplotlib and Plotly for static and interactive plots  
 - Data merging and aggregation strategies to enrich text data with metadata
+- Explaining complex topics to a potentially less knowledable audience
 
 ---
 
