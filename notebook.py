@@ -529,7 +529,7 @@ def _(pd, pres_speech_means):
 
 @app.cell
 def _(mo):
-    mo.md(r"""Phew that was a lot. Let's finish up with one more plot. This is a plot of all the speeches of our presidents we are interested in in regards to the sentiment over time. This is once again done with plotly so feel free to explore. This one doesn't necessarily have clear conclusions to draw from but maybe you'll notice something interesting. Perhaps you could try to map some of these speech periods to historical periods in your mind quickly. See? Text analysis and machine learning isn't that hard! Now you hopefully have some tools to be able to do some of this on your own.""")
+    mo.md(r"""Phew that was a lot. Let's finish up with one more plot. This is a plot of all the speeches of our presidents we are interested in, in regards to the sentiment over time. This is once again done with plotly so feel free to explore. This one doesn't necessarily have clear conclusions to draw from but maybe you'll notice something interesting. Perhaps you could try to map some of these speech periods to historical periods in your mind quickly. See? Text analysis and machine learning isn't that hard! Now you hopefully have some tools to be able to do some of this on your own.""")
     return
 
 
